@@ -25,8 +25,8 @@ public class programSkelett {
 		
 	
 	// alternativ
-	private void runloop() {
-		Scanner input = new Scanner(System.in);
+	public void runloop() {
+		Scanner input = new Scanner(System.in).useLocale(Locale.US);
 		boolean alternativ = true;
 		
 		while (alternativ) {
@@ -34,7 +34,7 @@ public class programSkelett {
 		
 			switch (choice) {
 	
-				case "register":
+				case "register new dog":
 				
 					//choice = "register new dog";
 					System.out.println(choice);
@@ -56,24 +56,26 @@ public class programSkelett {
 					
 					Dog dog= new Dog(name,breed,age,weight);
 					dogData.add(dog);
+					//System.out.println("The dog is in the register.");
+					input.nextLine();
 					System.out.println("The dog is in the register.");
-					//choice = input.nextLine();
 					break;
 					
-				case "age":
+					
+				case "increase age":
 				
 					choice = "increase age";
 					System.out.println (choice);
 					System.out.println("Dog's name:");
 					String dogNeedIncreaseAge = input.nextLine();
-					System.out.println("How many years to increase?");
-					int increasedAge = input.nextInt();
+					
+					
 					boolean dogExist = false;
 					
 					
 					for (int i = 0; i < dogData.size();i++) {
 						if(dogData.get(i).getName().equalsIgnoreCase(dogNeedIncreaseAge)) {
-							dogData.get(i).increaseAge(increasedAge);
+							dogData.get(i).increaseAge(1);
 							dogExist = true;
 						}
 					}
@@ -83,7 +85,7 @@ public class programSkelett {
 						
 					}
 					
-					input.nextLine();
+					//input.nextLine();
 					break;
 					
 				case"list dogs":
@@ -105,12 +107,13 @@ public class programSkelett {
 								System.out.println(dogData.get(i).toString());
 							}
 						}
+					
 					}
 					
-					input.nextLine();
+					//input.nextLine();
 					break;
 					
-				case"remove":
+				case"remove dog":
 				
 					choice =" remove dog";
 					System.out.println (choice);
@@ -131,7 +134,7 @@ public class programSkelett {
 						System.out.println("Error: dog with that name was not in the register.");
 						
 					}
-					input.nextLine();
+					//input.nextLine();
 					break;
 					
 				
@@ -143,14 +146,14 @@ public class programSkelett {
 					
 				default:
 					
-					System.out.println("error");
+					System.out.println("error, this command does not exist.");
 					break;
 				}
 				
 		}
 		input.close();
 	}
-		
+	
 	public static void main(String []args) {
 		programSkelett program = new programSkelett();
 		program.runCommando();

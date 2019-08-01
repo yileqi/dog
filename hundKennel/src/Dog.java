@@ -1,4 +1,5 @@
 
+
 //Yileqi Alfredsson yial6761//
 
 public class Dog {
@@ -55,7 +56,7 @@ public class Dog {
 	}
 
 	public String toString() {
-		return name +" "+ breed+ " " + Integer.toString(age)+" år" + Double.toString(weight)+" kg" + " svans ="+ Double.toString(calculatorTailLength());
+		return name +" "+ breed+ " " + Integer.toString(age)+" år " + Double.toString(weight)+" kg" + " svans ="+ Double.toString(calculatorTailLength());
 	}
 
 }
